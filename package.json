@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node node_modules/vite/bin/vite.js build",
+    "vercel-build": "node node_modules/vite/bin/vite.js build",
     "dev": "vite",
     "postinstall": "chmod +x ./node_modules/.bin/* 2>/dev/null || true",
     "test:playwright": "playwright test",
