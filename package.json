@@ -4,10 +4,11 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "node node_modules/vite/bin/vite.js build",
     "dev": "vite",
+    "postinstall": "chmod +x ./node_modules/.bin/* 2>/dev/null || true",
     "test:playwright": "playwright test",
-    "smoke:test": "node scripts/smoke_test_api.js"
+    "smoke:test": "node .other/scripts/smoke_test_api.js"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -65,7 +66,6 @@
     "react-slick": "0.31.0",
     "recharts": "2.15.2",
     "sonner": "2.0.3",
-    "supabase": "^2.95.3",
     "tailwind-merge": "3.2.0",
     "tw-animate-css": "1.3.8",
     "vaul": "1.1.2",
