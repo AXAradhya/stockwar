@@ -1,0 +1,8 @@
+{
+  "usIndices": ["SPY", "QQQ", "DIA", "IWM", "VIX", "IWM", "RUT", "NDX"],
+  "indiaIndices": ["^NSEI", "^BSESN", "^NSEBANK", "^NSEIT", "^NSEFINSERVICE"],
+  "europeIndices": ["^STOXX50E", "^GDAXI", "^FCHI", "^FTSE"],
+  "topMoversCount": 50,
+  "sectors": ["XLK", "XLV", "XLF", "XLE", "XLY", "XLI", "XLC", "XLP", "XLU", "XLB"],
+  "crypto": ["bitcoin", "ethereum", "solana", "binancecoin", "ripple", "dogecoin"]
+}

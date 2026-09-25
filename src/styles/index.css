@@ -1,0 +1,220 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* StockWar Terminal Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000000;
+}
+
+#root {
+  height: 100%;
+}
+
+/* ─── Slim scrollbars ─── */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a3e;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a1a2e transparent;
+}
+
+/* ─── Panel badge pulse animation ─── */
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+/* ─── Blinking cursor animation ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Spin animation for loading indicators ─── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Compact mode overrides ─── */
+body.compact-mode .panel-content {
+  font-size: 8px !important;
+}
+
+/* ─── No panel borders ─── */
+body.no-panel-borders .panel-wrapper {
+  border-color: transparent !important;
+}
+
+/* ─── Fade-in for new flow items ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── react-resizable CSS (inlined — pnpm sub-dependency not directly importable) ─── */
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+}
+.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.react-resizable-handle-w,
+.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.react-resizable-handle-n,
+.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+/* React Grid Layout drag/resize handle customizations */
+.react-grid-item.react-grid-placeholder {
+  background: rgba(0, 204, 255, 0.08) !important;
+  border: 1px dashed #00ccff44 !important;
+  opacity: 1 !important;
+}
+
+.react-resizable-handle {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.react-grid-item:hover .react-resizable-handle {
+  opacity: 1;
+}
+
+.react-resizable-handle::after {
+  border-color: #00ccff !important;
+  border-width: 1px 1px 0 0 !important;
+}
+
+/* AI cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-alert {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+@keyframes ticker-slide {
+  0% { transform: translateY(-50%) translateX(0); }
+  100% { transform: translateY(-50%) translateX(-200%); }
+}
+
+/* Scanline overlay */
+.scanline {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* Panel flash effect */
+@keyframes flash-up {
+  0% { background: rgba(0,255,136,0.15); }
+  100% { background: transparent; }
+}
+
+@keyframes flash-down {
+  0% { background: rgba(255,51,85,0.15); }
+  100% { background: transparent; }
+}
+
+/* Smooth status dot pulse */
+.status-dot-live {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Terminal text flicker (subtle) */
+@keyframes flicker {
+  0%, 98%, 100% { opacity: 1; }
+  99% { opacity: 0.95; }
+}
