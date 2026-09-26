@@ -5,7 +5,6 @@ import { useUiStore } from '../../stores/uiStore';
 import { useConfigStore } from '../../stores/configStore';
 import { logToTerminal } from '../../stores/logStore';
 import { toast } from 'sonner';
-import { projectId, publicAnonKey } from '/utils/supabase/info';
 import { postAIChat, postOpenRouterDirect } from '../../services/apiServices';
 
 interface Message {

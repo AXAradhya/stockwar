@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Bot, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { projectId, publicAnonKey } from '/utils/supabase/info';
 import { useUiStore } from '../../stores/uiStore';
 import { postAIChat } from '../../services/apiServices';
 

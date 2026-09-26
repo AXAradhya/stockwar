@@ -1,7 +1,6 @@
 import { useConfigStore } from '../stores/configStore';
 import { logToTerminal } from '../stores/logStore';
 import { useTickerConfigStore } from '../stores/tickerConfigStore';
-import { projectId, publicAnonKey } from '../../../utils/supabase/info';
 import { fmtNum, roundTo } from '../utils/numberFormat';
 
 const FRED_BASE = 'https://api.stlouisfed.org/fred';

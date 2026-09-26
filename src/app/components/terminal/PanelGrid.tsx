@@ -17,6 +17,12 @@ class PanelErrorBoundary extends Component<{ children: ReactNode, panelName: str
     console.error(`Panel Error [${this.props.panelName}]:`, error, errorInfo);
   }
 
+  componentDidUpdate(prevProps: { refreshKey?: number }) {
+    if (prevProps.refreshKey !== this.props.refreshKey && this.state.hasError) {
+      this.setState({ hasError: false, errorMsg: '' });
+    }
+  }
+
   render() {
     if (this.state.hasError) {
       return (

@@ -37,9 +37,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
           charts: ['recharts', 'lucide-react'],
-          layout: ['react-grid-layout', 'react-resizable']
+          layout: ['react-grid-layout']
         }
       }
     }

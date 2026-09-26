@@ -56,7 +56,7 @@ const CONTEXT_COLORS: Record<string, string> = {
   INDIA: '#FF9933',
 };
 
-export function TopBar({ monitorContext, setMonitorContext, region, setRegion, onOpenAI, onOpenSettings }: TopBarProps) {
+export function TopBar({ monitorContext, setMonitorContext, region, setRegion, onOpenAI, onOpenSettings, onOpenTeamModal }: TopBarProps) {
   const [time, setTime] = useState(new Date());
   const [regionOpen, setRegionOpen] = useState(false);
   const { user, logout } = useAuthStore();
