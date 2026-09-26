@@ -103,12 +103,12 @@ export const useConfigStore = create<ConfigState>()(
       initFromEnv: () => {
         const current = get();
         
-        // Merge env-provided API keys (only fill empty ones)
+        // Merge env-provided API keys (check both _API_KEY and _KEY variants)
         const envKeys = {
-          finnhub: (import.meta.env.VITE_FINNHUB_API_KEY as string) || '',
-          newsApi: (import.meta.env.VITE_NEWSAPI_KEY as string) || '',
-          fred: (import.meta.env.VITE_FRED_API_KEY as string) || '',
-          eia: (import.meta.env.VITE_EIA_API_KEY as string) || '',
+          finnhub: (import.meta.env.VITE_FINNHUB_API_KEY as string) || (import.meta.env.VITE_FINNHUB_KEY as string) || '',
+          newsApi: (import.meta.env.VITE_NEWSAPI_KEY as string) || (import.meta.env.VITE_NEWS_API_KEY as string) || '',
+          fred: (import.meta.env.VITE_FRED_API_KEY as string) || (import.meta.env.VITE_FRED_KEY as string) || '',
+          eia: (import.meta.env.VITE_EIA_API_KEY as string) || (import.meta.env.VITE_EIA_KEY as string) || '',
         };
         const merged = { ...current.apiKeys };
         (Object.keys(envKeys) as Array<keyof typeof envKeys>).forEach((k) => {
@@ -126,7 +126,7 @@ export const useConfigStore = create<ConfigState>()(
         }
 
         // Seed OpenRouter from env if no keys configured yet
-        const envOrKey = (import.meta.env.VITE_OPENROUTER_KEY as string) || '';
+        const envOrKey = (import.meta.env.VITE_OPENROUTER_KEY as string) || (import.meta.env.VITE_OPENROUTER_API_KEY as string) || '';
         if (envOrKey) {
           const keys = envOrKey.split(',').map(s => s.trim()).filter(Boolean);
           if (keys.length > 0 && current.openRouterKeys.length === 0) {
@@ -136,7 +136,7 @@ export const useConfigStore = create<ConfigState>()(
           }
         }
 
-        const envGemini = (import.meta.env.VITE_GEMINI_KEY as string) || '';
+        const envGemini = (import.meta.env.VITE_GEMINI_KEY as string) || (import.meta.env.VITE_GEMINI_API_KEY as string) || '';
         if (envGemini && !current.geminiKey) {
           set({ geminiKey: envGemini, geminiEnabled: true });
         }
